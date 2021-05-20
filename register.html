@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+
+    <meta charset="UTF-8">
+    <title>Django BLog</title>
+
+</head>
+<body>
+
+<header class="site-header">
+    <nav class="navbar">
+        <div class="topnav">
+            <div>
+                <a href="index.html">Home</a>
+                <a href="#">About</a>
+            </div>
+            <div class="right_topnav">
+                <a href="profile.html">Profile</a>
+                <a href="#">Logout</a>
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+                <input type="text" placeholder="first_name" id="first_name"/>
+                <input type="text" placeholder="second_name" id="second_name"/>
+                <input type="text" placeholder="user_name" id="user_name"/>
+                <input type="password" placeholder="password" id="password"/>
+
+                <button onclick="sendRequest({})">create</button>
+
+
+                <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">About</a>
+        <a href="profile.html">Profile</a>
+        <a href="index.html">Logout</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+    </nav>
+
+    <p>BOOKING.COM</p>
+
+</footer>
+<!-- Optional JavaScript -->
+
+<script>
+    function sendRequest(){
+
+        var f_name = document.getElementById("first_name");
+        var s_name = document.getElementById("second_name");
+        var user_name = document.getElementById("user_name");
+        var password = document.getElementById("password");
+        var entry = {
+            first_name: f_name.value,
+            second_name: s_name.value,
+            user_name: user_name.value,
+            password: password.value
+        };
+
+        console.log(entry);
+
+        fetch('http://127.0.0.1:5000/user/',
+            {
+                method: "POST",
+                credential:"include",
+                body: JSON.stringify(entry),
+                cache: "no-cache",
+                headers: new Headers({
+                "content-type": "application/json"
+                })
+            })
+         .then(function(response) {
+            if (response.status !== 200) {
+              console.log(`Looks like there was a problem. Status code: ${response.status}`);
+              return;
+            }
+            response.json().then(function(data) {
+              console.log(data);
+            });
+          })
+          .catch(function(error) {
+            console.log("Fetch error: " + error);
+        });
+
+    }
+
+
+</script>
+
+</body>
+</html>

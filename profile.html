@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+
+    <meta charset="UTF-8">
+    <title>Django BLog</title>
+
+</head>
+<body>
+
+<header class="site-header">
+    <nav class="navbar">
+        <div class="topnav">
+            <div>
+                <a href="index.html">Home</a>
+                <a href="#">About</a>
+            </div>
+            <div class="right_topnav">
+                <a href="profile.html">Profile</a>
+                <a href="#">Logout</a>
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+
+    <div class="row">
+
+        <div class="col-md-8">
+
+            <div class="content-section">
+
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="csrfmiddlewaretoken"
+                           value="OiyKIW38vl8x2xm2AMe59ZHo1C3QvttPiR6KYUi0tBX1SSZ1xr0ynxwjzqVMOpyP">
+
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Profile Info</legend>
+
+
+                        <div id="div_id_username" class="form-group"><label for="id_username" class=" requiredField">
+                            First Name<span class="asteriskField">*</span> </label>
+                            <div class="">
+                                <input type="text" name="username" value="Alex" maxlength="150"
+                                       class="textinput textInput form-control" required="" id="id_username"> <small
+                                    id="hint_id_username" class="form-text text-muted"></small></div>
+                        </div>
+
+                        <div id="div_id_second_name" class="form-group"><label for="id_second_name" class=" requiredField">
+                            Last Name<span class="asteriskField">*</span> </label>
+                            <div class="">
+                                <input type="text" name="second_name" value="Gerbert"
+                                       class="textinput textInput form-control" required="" id="id_second_name">
+                            </div>
+                        </div>
+
+                        <div id="div_id_email" class="form-group"><label for="id_email" class=" requiredField">
+                            Email<span class="asteriskField">*</span> </label>
+                            <div class="">
+                                <input type="email" name="email"value="user_name@gmail.com"
+                                       class="emailinput form-control" required="" id="id_email">
+                            </div>
+                        </div>
+
+
+
+
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Update</button>
+                    </div>
+
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+          <nav>
+
+              <a href="index.html">Home</a>
+              <a href="#">About</a>
+              <a href="profile.html">Profile</a>
+              <a href="index.html">Logout</a>
+              <a href="login.html">Login</a>
+              <a href="register.html">Register</a>
+        </nav>
+
+        <p>BOOKING.COM</p>
+
+
+</footer>
+</body>
+</html>
